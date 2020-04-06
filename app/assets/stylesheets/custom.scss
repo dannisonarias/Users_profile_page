@@ -1,18 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-.
-.
-.
 /* miscellaneous */
 
 .debug_dump {
@@ -20,5 +11,21 @@ $gray-medium-light: #eaeaea;
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
 }
+
+.form {
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+.form .btn {
+  width:100%;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+

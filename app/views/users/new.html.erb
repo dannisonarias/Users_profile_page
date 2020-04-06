@@ -1,0 +1,14 @@
+<h1 class = "text-center"> Registration </h1>
+<div class = "form">
+  <%= form_for @user do |f| %>
+  <%= render 'shared/error_messages' %>
+   <%= render 'shared/success_message' %>
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: "Enter Username here",class: 'form-control' %><br />
+    <%= f.label :email %>
+    <%= f.text_field :email , placeholder: "Enter Email here",class: 'form-control' %><br />
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Enter Password here",class: 'form-control' %><br />
+    <%= f.submit "Create my account", class: "btn btn-primary" %>
+  <% end %>
+</div>
