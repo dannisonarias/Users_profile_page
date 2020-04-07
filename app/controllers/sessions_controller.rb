@@ -5,10 +5,11 @@ class SessionsController < ApplicationController
 
   def create
     # email addresses are saved as all lower-case, so here we use the downcase method
-    user = User.find_by(email: params[:session][:username].downcase)
+    user = User.find_by(username: params[:session][:username].downcase)
     if user && user.authenticate(params[:session][:password])
+      log_in user
+      redirect_to user
       # Log the user in and redirect to the user's show page.
-      render 'new'
     else
       # Create an error message.
       flash.now[:danger] = 'Invalid email/password combination' 
@@ -21,5 +22,6 @@ class SessionsController < ApplicationController
   def destroy
 
   end
+
 
 end
